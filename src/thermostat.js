@@ -44,7 +44,7 @@ class Thermostat{
     }
   }
   isMiniumTemperature() {
-    return this.temperature === this.MINIMUM_TEMPERATURE;
+    return this.temperature <= this.MINIMUM_TEMPERATURE;
   }
   isMaximumTemperature() {
     if (this.isPowerSavingModeOn() === false) {
