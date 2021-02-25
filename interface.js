@@ -30,6 +30,18 @@ $(document).ready(function() {
     updateTemperature
   })
 
+  $('#select-city').submit(function(event) {
+    event.preventDefault();
+  
+    var city = $('#current-city').val();
+    var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city;
+    var token = '&appid=60e7b76e97695b9b14e7de04a17e040b'
+    var units = '&units=metric'
+
+    $.get(url + token + units, function(data) { $('#current-temperature').text(data.main.temp + " º"); 
+    })
+  });
+
   function updateTemperature() {
     $('#temperature').text(thermostat.temperature);
     $('#temperature').attr('class', thermostat.energyUsage())
